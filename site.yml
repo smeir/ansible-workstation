@@ -1,0 +1,9 @@
+---
+# This Playbook will setup a workstation from scratch
+
+- hosts: local
+  accelerate: true
+  sudo: yes
+  roles:
+  - role: common 
+  - role: eos

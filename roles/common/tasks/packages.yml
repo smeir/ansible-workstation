@@ -1,0 +1,51 @@
+---
+# This playbook contains common base packages.
+
+- name: Linux | Update cache
+  apt: update_cache=yes cache_valid_time=3600
+
+- name: Package | Install lists packages
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - bash-completion
+    - vim
+    - git
+    - curl
+    - wget
+    - htop
+    - unzip
+    - tar
+    - gzip
+    - bzip2
+    - pwgen
+    - thunderbird 
+    - enigmail 
+    - xul-ext-gdata-provider 
+    - xul-ext-lightning 
+    - vlc 
+    - unrar 
+    - konsole 
+    - ksysguard 
+    - dstat 
+    - fslint 
+    - gparted 
+    - flashplugin-installer 
+    - gsfonts-x11
+    - baobab
+    - firefox
+    - mc 
+
+- name: add repo for sysmonitor indikator
+  apt_repository: repo='ppa:alexeftimie/ppa'
+
+- name: Package | Install sysmonitor indikator
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - indicator-sysmonitor
+
+- name: ensure sublime text repo available
+  apt_repository: repo='ppa:webupd8team/sublime-text-3'
+- name: Package | Install sublime text
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - sublime-text-installer

@@ -1,0 +1,7 @@
+---
+- name: copy sysmon
+  copy: src=sysmon dest=/home/smeier/bin/ mode=u+rwx owner=smeier
+- name: copy screenfetch
+  copy: src=screenfetch-dev dest=/home/smeier/bin/ mode=u+rwx owner=smeier
+- name: copy sysmon-autostart
+  copy: src=indicator-sysmonitor.desktop dest=/home/smeier/.config/autostart owner=smeier
