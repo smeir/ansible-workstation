@@ -1,0 +1,69 @@
+"""""""""""""""""""""""
+" => General
+"""""""""""""""""""""""
+set nocp
+execute pathogen#infect()
+" Enable filetype plugins
+filetype plugin indent on
+" ignore files for e: and ctrp
+set wildignore+=*.png,*.PNG,*.JPG,*.jpg,*.JPEG,*.jpeg,*.GIF,*.gif,*.pdf,*.PDF,*.cbr,*.cbz,*.zip,*.gz,*.tar,*.tgz,*.jar 
+
+"""""""""""""""""""""""
+" => Vim user interface
+"""""""""""""""""""""""
+set scrolloff=2                                                                                           
+set ttimeoutlen=50                                      " No delay after hitting ESC
+" Ignore case when searching
+set ignorecase
+" When searching try to be smart about cases 
+set smartcase
+" Highlight search results
+set hlsearch
+" Makes search act like search in modern browsers
+set incsearch
+" enable linenumber
+set number
+
+"""""""""""""""""""""""
+" => Colors and Fonts
+""""""""""""""""""""""" 
+" Enable syntax highlighting
+syntax on
+colorscheme desert
+"set background=dark
+"set cursorline                                          " Highlight the current line
+"hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white  " cursorline with background, disable underline
+set t_Co=256                      			" Force vim to use 256 colours
+
+"""""""""""""""""""""""
+" => Files, backups and undo
+"""""""""""""""""""""""
+" Turn backup off, since most stuff is in dropbox, git et.c anyway...
+set nobackup
+set nowb
+set noswapfile
+
+""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+""""""""""""""""""""""""""""""""""""""""""
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
+
+""""""""""""""""""""""""""""""
+" => Status line
+""""""""""""""""""""""""""""""
+" Always show the status line
+set laststatus=2
+
+" Format the status line
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+
+"""""""""""""""""""
+" => Plugins
+"""""""""""""""""""
+
+map <C-n> :NERDTreeToggle<CR>
+
+"close vim if nerdtree is last window
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif

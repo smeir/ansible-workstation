@@ -16,5 +16,10 @@ Plank
 
 default font, droid san 10
 
-#sysmon indikator
+#sysmon indicator
 * preferences -> with this command "/home/smeier/bin/sysmon"
+* or "MEM: {mem} |CPU: {cpu} | {net}" as string
+
+#fix dropbox icon
+* disable autostart in dropbox, "dropbox stop && env XDG_CURRENT_DESKTOP=Unity dropbox start"
+* add command "env XDG_CURRENT_DESKTOP=Unity dropbox start" to Settings->Applications->Autostart

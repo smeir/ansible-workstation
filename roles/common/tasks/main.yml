@@ -1,3 +1,5 @@
 ---
 - include: packages.yml
+- include: chrome.yml
 - include: bin.yml
+- include: indicators.yml

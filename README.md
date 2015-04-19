@@ -1,2 +1,3 @@
 # ansible-workstation
-bootstrap a workstation dev environment, based on eos/ubuntu 12.04
+bootstrap a workstation environment, based on eos/ubuntu 14.04
+

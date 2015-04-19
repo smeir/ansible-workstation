@@ -1,0 +1,13 @@
+    - name: setup oracle java deb repo
+      apt_repository: repo="ppa:webupd8team/java" update_cache=yes
+
+    - name: accept Oracle license
+      debconf: name="oracle-java8-installer" question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
+
+    - name: install oracle/java packages
+      apt: name={{item}} state=present update_cache=yes
+      with_items: oracle_packages
+
+    - name: install maven
+      action: apt pkg={{item}} state=installed
+      with_items: maven

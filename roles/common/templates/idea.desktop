@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Name=IntelliJ IDEA
+GenericName=Java IDE
+Comment=IntelliJ IDEA is a code-centric IDE focused on developer productivity. The editor deeply understands your code and knows its way around the codebase, makes great suggestions right when you need them, and is always ready to help you shape your code.
+Exec=/home/{{username}}/programs/idea/bin/idea.sh
+Icon=/home/{{username}}/programs/idea/bin/idea.png
+Terminal=false
+Type=Application
+Categories=Development;IDE

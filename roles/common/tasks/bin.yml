@@ -1,7 +1,29 @@
 ---
 - name: copy sysmon
-  copy: src=sysmon dest=/home/smeier/bin/ mode=u+rwx owner=smeier
+  copy: src=sysmon dest=/home/{{username}}/bin/ mode=u+rwx owner={{username}}
 - name: copy screenfetch
-  copy: src=screenfetch-dev dest=/home/smeier/bin/ mode=u+rwx owner=smeier
-- name: copy sysmon-autostart
-  copy: src=indicator-sysmonitor.desktop dest=/home/smeier/.config/autostart owner=smeier
+  copy: src=screenfetch-dev dest=/home/{{username}}/bin/ mode=u+rwx owner={{username}}
+- name: copy bashrc common file
+  copy: src=bashrc_common.sh dest=/home/{{username}}/.bashrc_common.sh owner={{username}}
+- name: copy email signature file
+  copy: src=signature dest=/home/{{username}}/.signature owner={{username}}
+- name: copy vim configuration
+  copy: src=vimrc dest=/home/{{username}}/.vimrc owner={{username}}
+- name: link vim plugins folder
+  file: src=/home/{{username}}/programs/.vim dest=/home/{{username}}/.vim state=link
+
+- name: Update bashrc to parse bashrc_common
+  lineinfile:
+    dest=/home/{{username}}/.bashrc
+    line="source ~/.bashrc_common.sh"
+    regexp="^source ~/.bashrc_common.sh"
+    owner={{username}}
+    state=present
+    insertafter=EOF
+    create=True
+
+- name: create some desktop shortcuts for programs
+  template: src={{item}} dest=/home/{{username}}/.local/share/applications/ owner={{username}}
+  with_items:
+    - idea.desktop
+    - studio.desktop

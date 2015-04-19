@@ -1,0 +1,28 @@
+- name: add repo for sysmonitor indikator - https://github.com/fossfreedom/indicator-sysmonitor
+  apt_repository: repo='ppa:fossfreedom/indicator-sysmonitor'
+
+- name: Package | Install sysmonitor indikator
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - indicator-sysmonitor
+
+- name: add repo for ppa:atareao/atareao
+  apt_repository: repo='ppa:atareao/atareao'
+
+- name: Package | Install indicators
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - my-weather-indicator
+    - pushbullet-indicator
+    - calendar-indicator
+    - cryptfolder-indicator
+
+- name: copy some indicators
+  copy: src={{item}} dest=/home/{{username}}/.config/autostart/ owner={{username}}
+  with_items:
+    - indicator-sysmonitor.desktop
+    - extras-calendar-indicator.desktop
+    - extras-cryptfolder-indicator.desktop
+    - extras-my-weather-indicator.desktop
+    - extras-pushbullet-indicator.desktop
+    - dropbox.desktop

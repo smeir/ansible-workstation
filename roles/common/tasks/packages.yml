@@ -24,6 +24,7 @@
     - xul-ext-lightning 
     - vlc 
     - unrar 
+    - rar
     - konsole 
     - ksysguard 
     - dstat 
@@ -34,14 +35,27 @@
     - baobab
     - firefox
     - mc 
+    - tree
+    - xsel
+    - xclip
+    - comix
+    - gimp
+    - krita
+    - gnupg2
+    - keepass2
+    - libreoffice
+    - nautilus
+    - dolphin
+    - transmission
+    - nautilus-dropbox
+    - virtualbox
+    - virtualbox-dkms
+    - vagrant
+    - pidgin
+    - lib32stdc++6 # android adb
+    - lib32z1 # android adb
+    - libgl1-mesa-glx-lts-utopic:i386 # steam
 
-- name: add repo for sysmonitor indikator
-  apt_repository: repo='ppa:alexeftimie/ppa'
-
-- name: Package | Install sysmonitor indikator
-  apt: pkg={{ item }} state=installed
-  with_items:
-    - indicator-sysmonitor
 
 - name: ensure sublime text repo available
   apt_repository: repo='ppa:webupd8team/sublime-text-3'

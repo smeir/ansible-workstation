@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name[en]=Dropbox
+Comment[en]=env XDG_CURRENT_DESKTOP=Unity dropbox start
+Exec=env XDG_CURRENT_DESKTOP=Unity dropbox start
+Icon=application-default-icon
+X-GNOME-Autostart-enabled=true
+Type=Application
