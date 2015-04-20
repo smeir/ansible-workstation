@@ -1,3 +1,13 @@
+- name: Package | Install diodon clipboard manager
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - diodon
+
+- name: link monochrome diodon icon
+  file: src=/usr/share/icons/ubuntu-mono-dark/status/16/diodon-panel.svg dest=/usr/share/icons/elementary/status/16/diodon-panel.svg state=link
+- name: update icon cache
+  command: gtk-update-icon-cache /usr/share/icons/elementary/
+
 - name: add repo for sysmonitor indikator - https://github.com/fossfreedom/indicator-sysmonitor
   apt_repository: repo='ppa:fossfreedom/indicator-sysmonitor'
 
@@ -13,16 +23,14 @@
   apt: pkg={{ item }} state=installed
   with_items:
     - my-weather-indicator
-    - pushbullet-indicator
     - calendar-indicator
     - cryptfolder-indicator
 
-- name: copy some indicators
+- name: copy some indicators to autostart
   copy: src={{item}} dest=/home/{{username}}/.config/autostart/ owner={{username}}
   with_items:
     - indicator-sysmonitor.desktop
     - extras-calendar-indicator.desktop
     - extras-cryptfolder-indicator.desktop
     - extras-my-weather-indicator.desktop
-    - extras-pushbullet-indicator.desktop
     - dropbox.desktop
