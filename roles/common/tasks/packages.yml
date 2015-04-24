@@ -55,6 +55,7 @@
     - lib32stdc++6 # android adb
     - lib32z1 # android adb
     - libgl1-mesa-glx-lts-utopic:i386 # steam
+    - k3b
 
 
 - name: ensure sublime text repo available
