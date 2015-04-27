@@ -28,3 +28,9 @@
     - idea.desktop
     - studio.desktop
     - jd2.desktop
+
+#- name: install bro pages http://bropages.org/
+#  gem: name={{item}} state=latest user_install=yes
+#  sudo: no
+#  with_items:
+#    - bropages

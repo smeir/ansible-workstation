@@ -1,0 +1,50 @@
+- name: install rbenv
+  git: repo=git://github.com/sstephenson/rbenv.git dest={{rbenv_root}} update=no accept_hostkey=yes
+  sudo: no
+
+- name: install ruby-build plugin
+  git: repo=git://github.com/sstephenson/ruby-build.git dest={{rbenv_root}}/plugins/ruby-build update=no accept_hostkey=yes
+  sudo: no
+
+- name: add rbenv init to ~/.bashrc
+  sudo: no
+  lineinfile: >
+    dest={{home_dir}}/.bashrc
+    line='eval "$(rbenv init -)"'
+    insertbefore=BOF
+    regexp=eval.*rbenv
+    create=yes
+    state=present
+
+
+- name: update PATH in ~/.bashrc for rbenv
+  sudo: no
+  lineinfile: >
+    dest={{home_dir}}/.bashrc
+    line=export\ PATH="{{rbenv_root}}/bin:$PATH"
+    insertbefore=BOF
+    regexp=PATH.*rbenv
+
+
+- name: check if ruby {{ruby_version}} is installed
+  sudo: no
+  shell: ~/.rbenv/bin/rbenv versions | grep {{ruby_version}} # todo use hardcoded path
+  register: ruby_installed
+  ignore_errors: yes
+  changed_when: false
+
+- name: install ruby {{ruby_version}} unless it is already installed
+  sudo: no
+  command: ~/.rbenv/bin/rbenv install {{ruby_version}}
+  when: ruby_installed | failed
+
+- name: check current global ruby
+  sudo: no
+  command: ~/.rbenv/bin/rbenv global
+  register: ruby_global
+  changed_when: false
+
+- name: make ruby {{ruby_version}} global
+  sudo: no
+  command: ~/.rbenv/bin/rbenv global {{ruby_version}}
+  when: "ruby_version != ruby_global.stdout"
