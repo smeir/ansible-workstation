@@ -1,0 +1,9 @@
+- name: Package | Install nodejs packages
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - nodejs
+    - nodejs-legacy # creates symlink to "node" binary
+    - npm
+
+- name: Package | Install bower
+  command: npm install -g bower
