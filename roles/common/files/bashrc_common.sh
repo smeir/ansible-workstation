@@ -4,6 +4,7 @@ alias ..="cd .."
 alias portscan="nc -v -w 1 tapnic.com -z 1-10000 2>&1 | grep succeeded"
 alias portecle="java -jar ~/programs/portecle/portecle.jar"
 alias inxi="inxi -Fx"
+alias sync_photos="rsync -vuLr --no-perms -e \"ssh -p 2222\" root@192.168.188.21:/sdcard/DCIM/Camera/ ~/Pictures/Camera"
 
 export ANDROID_HOME=~/programs/android-sdk
 
