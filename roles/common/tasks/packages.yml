@@ -33,7 +33,6 @@
     - gsfonts-x11
     - baobab
     - firefox
-    - mc 
     - tree
     - xsel
     - xclip
@@ -45,7 +44,9 @@
     - libreoffice
     - nautilus
     - dolphin
+    - mc
     - transmission
+    - filezilla
     - nautilus-dropbox
     - virtualbox
     - virtualbox-dkms
@@ -57,6 +58,8 @@
     - k3b
     - calibre
     - colorname # its always good to know the names
+    - mysql-server
+    - network-manager-openvpn
 
 
 - name: ensure sublime text repo available
