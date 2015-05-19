@@ -1,0 +1,12 @@
+---
+# this install and starts a default sabnzbdplus on port 8534
+- name: Package | Install lists packages
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - sabnzbdplus # http://sabnzbd.org/
+
+- name: copy config for sabnzdplus
+  template: src=sabnzbdplus dest=/etc/default/sabnzbdplus
+
+- name: start sabnzbdplus as service
+  service: name=sabnzbdplus state=started

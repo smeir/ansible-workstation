@@ -2,8 +2,12 @@
 # This Playbook will setup a workstation from scratch
 
 - hosts: local
+  vars:
+    username: smeier ## todo use current user as default
+    home_dir: "/home/{{username}}"
   sudo: yes
   roles:
-  - role: common 
+  - role: common
   - role: eos
   - role: java
+  - role: usenet
