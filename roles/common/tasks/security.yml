@@ -3,6 +3,7 @@
   with_items:
     - gnupg2
     - keepass2
+    - pwgen
 
 - name: ensure  https://launchpad.net/~keepassx/+archive/ubuntu/daily repo available
   apt_repository: repo='ppa:keepassx/daily'

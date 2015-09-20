@@ -17,7 +17,6 @@
     - tar
     - gzip
     - bzip2
-    - pwgen
     - thunderbird 
     - enigmail 
     - xul-ext-gdata-provider 
