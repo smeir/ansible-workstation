@@ -6,3 +6,4 @@
 - include: bin.yml
 - include: indicators.yml
 - include: security.yml
+- include: rss.yml
