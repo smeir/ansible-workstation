@@ -1,0 +1,35 @@
+#IDE
+.AndroidStudio*/system/caches
+.AndroidStudio*/system/index
+.IntelliJIdea*/system/caches
+.IntelliJIdea*/system/index
+
+
+# caches & sessions
+.dbus
+.cache
+.Trash
+.local/share/Trash
+.aptitude
+.cache
+.gradle/caches
+.m2/repository
+.ivy2/cache
+.composer/cache
+.rvm/gems
+
+# mounted file systems
+.gvfs
+.local/share/gvfs-metadata
+
+# thumbs
+.thumbnails
+
+#indexer
+.local/share/baloo
+.local/share/zeitgeist
+.local/share/akonadi
+
+# Adobe Trackers & Caches
+.adobe
+.macromedia

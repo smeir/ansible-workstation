@@ -1,0 +1,3 @@
+#!/bin/sh
+export CCOLLECT_CONF={{ccollect_config}}/
+{{home_bin}}/ccollect $1 $2
