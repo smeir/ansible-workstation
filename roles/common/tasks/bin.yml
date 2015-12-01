@@ -1,6 +1,5 @@
 ---
-- name: copy sysmon
-  copy: src=sysmon dest=/home/{{username}}/bin/ mode=u+rwx owner={{username}}
+
 - name: copy screenfetch
   copy: src=screenfetch-dev dest=/home/{{username}}/bin/ mode=u+rwx owner={{username}}
 - name: copy bashrc base file
@@ -12,15 +11,12 @@
 - name: link vim plugins folder
   file: src=/home/{{username}}/programs/.vim dest=/home/{{username}}/.vim state=link
 
+- name: create gitconfig
+  template: src=gitconfig dest=/home/{{username}}/.gitconfig owner={{username}}
+
 - name: modifiy .bashrc to parse all .bashrc_*
   lineinfile: dest={{home_dir}}/.bashrc insertafter="EOF" line="for f in ~/.bashrc_*; do source $f; done" state=present
 
-- name: create some desktop shortcuts for programs
-  template: src={{item}} dest=/home/{{username}}/.local/share/applications/ owner={{username}}
-  with_items:
-    - idea.desktop
-    - studio.desktop
-    - jd2.desktop
 
 #- name: install bro pages http://bropages.org/
 #  gem: name={{item}} state=latest user_install=yes

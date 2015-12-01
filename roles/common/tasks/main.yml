@@ -4,7 +4,9 @@
 - include: nodejs.yml
 - include: chrome.yml
 - include: bin.yml
-- include: indicators.yml
+- include: desktop.yml
 - include: security.yml
 - include: rss.yml
 - include: virtualbox.yml
+- include: multimedia.yml
+- include: proprietary.yml

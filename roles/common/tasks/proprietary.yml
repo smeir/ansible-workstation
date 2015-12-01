@@ -1,0 +1,9 @@
+---
+- name: ensure sublime text repo available
+  apt_repository: repo='ppa:webupd8team/sublime-text-3'
+
+- name: Package | Install sublime text
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - sublime-text-installer
+

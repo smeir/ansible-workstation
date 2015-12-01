@@ -4,6 +4,8 @@
 - hosts: local
   vars:
     username: smeier ## todo use current user as default
+    full_username: Sandy Meier
+    email_address: smeier@tapnic.com
     home_dir: "/home/{{username}}"
     #home_dir: "{{ ansible_env.HOME }}" can't be used because its "root" in sudo mode
     home_bin: "{{home_dir}}/bin"

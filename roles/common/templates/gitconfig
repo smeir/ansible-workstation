@@ -1,0 +1,5 @@
+[user]
+        name = {{full_username}}
+        email = {{email_address}}
+[core]
+        autocrlf = input

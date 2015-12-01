@@ -8,6 +8,9 @@
 - name: update icon cache
   command: gtk-update-icon-cache /usr/share/icons/elementary/
 
+- name: copy sysmon, used by indicator-sysmonitor ?
+  copy: src=sysmon dest=/home/{{username}}/bin/ mode=u+rwx owner={{username}}
+
 - name: add repo for sysmonitor indikator - https://github.com/fossfreedom/indicator-sysmonitor
   apt_repository: repo='ppa:fossfreedom/indicator-sysmonitor'
 
@@ -35,3 +38,10 @@
     - extras-my-weather-indicator.desktop
     - dropbox.desktop
     - indicator-diodon.desktop
+
+- name: create some desktop shortcuts for programs
+  template: src={{item}} dest=/home/{{username}}/.local/share/applications/ owner={{username}}
+  with_items:
+    - idea.desktop
+    - studio.desktop
+    - jd2.desktop
