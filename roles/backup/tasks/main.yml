@@ -1,6 +1,7 @@
 ---
 - name: create backup dir
   file: path={{home_backup_dir}} state=directory mode=0755
+  ignore_errors: yes
 
 - name: copy ccollect to user bin directory
   copy: src=bin/ccollect dest={{home_bin}}/ mode=u+rwx
