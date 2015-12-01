@@ -42,11 +42,11 @@
     - nautilus
     - dolphin
     - mc
+    - ncdu
+    - lnav # http://lnav.org/
     - transmission
     - filezilla
     - nautilus-dropbox
-    - virtualbox
-    - virtualbox-dkms
     - vagrant
     - pidgin
     - lib32stdc++6 # android adb
@@ -57,6 +57,8 @@
     - colorname # its always good to know the names
     - mysql-server
     - network-manager-openvpn
+    - python-pip
+    - aptitude
 
 
 - name: ensure sublime text repo available

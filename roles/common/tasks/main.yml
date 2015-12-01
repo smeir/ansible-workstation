@@ -1,5 +1,5 @@
 ---
-- include: packages.yml
+- include: base.yml
 - include: ruby.yml
 - include: nodejs.yml
 - include: chrome.yml
@@ -7,3 +7,4 @@
 - include: indicators.yml
 - include: security.yml
 - include: rss.yml
+- include: virtualbox.yml
