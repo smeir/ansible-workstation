@@ -1,0 +1,47 @@
+---
+  - name: download dockermachine
+    get_url: url=https://github.com/docker/machine/releases/download/v0.5.0/docker-machine_linux-amd64.zip dest={{home_bin}}/
+
+# todo use https as src in ansible 2.0
+  - name: extract docker-maschine zip
+    unarchive: src={{home_bin}}/docker-machine_linux-amd64.zip dest={{home_bin}}/ copy=no
+
+  - name: delete docker-machine zip
+    file: path={{home_bin}}/docker-machine_linux-amd64.zip state=absent
+
+  - name: install dockermachine bash completion
+    get_url: url=https://raw.githubusercontent.com/docker/machine/master/contrib/completion/bash/docker-machine.bash dest={{home_dir}}/.docker-machine-completion.sh mode=u+rwx
+
+  - name: check if "dev" docker vm exists
+    shell: "{{home_bin}}/docker-machine status dev"
+    register: docker_maschine_output
+    ignore_errors: yes
+
+  - name: create "dev" docker vm
+    shell: "{{home_bin}}/docker-machine create --virtualbox-memory 2048 --virtualbox-cpu-count 4 --driver virtualbox dev"
+    when: "'does not exist' in docker_maschine_output.stderr"
+
+  # can't use get_url :-( https://github.com/ansible/ansible/issues/12161, fixed in Python-2.7.9
+  - name: download docker client binary
+    shell: "curl -L https://get.docker.com/builds/Linux/x86_64/docker-1.9.0 > {{home_bin}}/docker-1.9.0"
+
+  - name: set symbolic link (docker client)
+    file: src={{home_bin}}/docker-1.9.0 dest={{home_bin}}/docker state=link
+
+  - name: set exec permission to docker client
+    file: path={{home_bin}}/docker-1.9.0 mode=u+rwx
+
+  - name: install docker client bash completion
+    get_url: url=https://raw.githubusercontent.com/docker/docker/master/contrib/completion/bash/docker dest={{home_dir}}/.docker-completion.sh mode=u+rwx
+
+  - name: download docker-compose
+    shell: "curl -L https://github.com/docker/compose/releases/download/1.5.1/docker-compose-Linux-x86_64 > {{home_bin}}/docker-compose"
+
+  - name: set exec permission to docker compose
+    file: path={{home_bin}}/docker-compose mode=u+rwx
+
+  - name: install docker-compose bash completion
+    get_url: url=https://raw.githubusercontent.com/docker/compose/master/contrib/completion/bash/docker-compose dest={{home_dir}}/.docker-compose-completion.sh mode=u+rwx
+
+  - name: copy bash settings for docker
+    copy: src=bashrc_docker dest={{home_dir}}/.bashrc_docker

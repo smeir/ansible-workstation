@@ -1,15 +1,19 @@
 # ansible-workstation
 bootstrap a workstation environment, based on eos/ubuntu 14.04
 
-#installed software
+## roles
+* docker - installs docker, docker-machine, docker-compose
+
+# installed software
 ## rss
 * [FeedReader](https://jangernert.github.io/feedreader/)
 
-#Included third party tools
-* [screenFetch] (https://github.com/KittyKatt/screenFetch) by Brett Bohnenkamper
+# included third party tools
+* [screenFetch](https://github.com/KittyKatt/screenFetch) by Brett Bohnenkamper
 * [ccollect](http://www.nico.schottelius.org/software/ccollect/) by Nico Schottelius
 
-#todo
+# todo
+
 **xca**
 download xca sourcepackage, extract
 sudo apt-get install libtool libqt4-dev libssl-dev

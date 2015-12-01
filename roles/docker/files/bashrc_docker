@@ -1,0 +1,25 @@
+# This file is managed by Ansible, all changes will be lost
+
+docker_up(){
+	docker-machine start dev
+	sleep 5
+	eval "$(docker-machine env dev)"
+	docker-machine ls
+}
+docker_down(){
+	docker-machine stop dev
+}
+docker_bash() {
+	docker exec -i -t $@ bash;
+}
+docker_ip() {
+  docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@"
+}
+
+if [ "$(docker-machine status dev)" == "Running" ]; then
+	eval "$(docker-machine env dev)"
+fi
+
+. ~/.docker-completion.sh
+. ~/.docker-machine-completion.sh
+. ~/.docker-compose-completion.sh

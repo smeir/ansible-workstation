@@ -17,6 +17,7 @@
   - role: eos
   - role: java
   - role: usenet
+  - {role: docker, sudo: no}
 
 
 
