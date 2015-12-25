@@ -53,4 +53,5 @@
     - network-manager-openvpn
     - python-pip
     - aptitude
+    - nfoview
 
