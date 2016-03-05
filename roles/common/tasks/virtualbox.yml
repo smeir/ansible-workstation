@@ -9,4 +9,4 @@
   shell: wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
 
 - name: Install virtualbox
-  apt: pkg=virtualbox-4.3 state=installed update_cache=yes
+  apt: pkg=virtualbox-5.0 state=installed update_cache=yes
