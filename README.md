@@ -15,10 +15,26 @@ bootstrap a workstation environment, based on eos/ubuntu 14.04
 # todo
 
 **xca**
+
 download xca sourcepackage, extract
 sudo apt-get install libtool libqt4-dev libssl-dev
 ./configure
 make -j6
 sudo make install
+
+**gamedev**
+
+sudo add-apt-repository ppa:mapeditor.org/tiled
+sudo apt-get update
+sudo apt-get install tiled-daily
+
+* wine *
+http://wiki.winehq.org/Ubuntu
+
+
+**python**
+git clone git://github.com/kennethreitz/autoenv.git ~/.autoenv
+echo 'source ~/.autoenv/activate.sh' >> ~/.bashrc
+
 
 
