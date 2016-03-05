@@ -1,18 +1,6 @@
 
 alias open="xdg-open"
 alias ..="cd .."
-alias portscan="nc -v -w 1 tapnic.com -z 1-10000 2>&1 | grep succeeded"
-alias portecle="java -jar ~/programs/portecle/portecle.jar"
-alias inxi="inxi -Fx"
-alias sync_photos="rsync -vuLr --no-perms -e \"ssh -p 2222\" root@192.168.188.21:/sdcard/DCIM/Camera/ ~/Pictures/Camera"
-
-export ANDROID_HOME=~/programs/android-sdk
-
-PATH=/home/$USER/bin:/home/$USER/programs/gradle/bin/:$PATH
-PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
-PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH
-
-export PATH
 
 #colored man pages
 man() {
@@ -36,22 +24,30 @@ function git-branch-prompt {
  }
 PS1="\u@\h \[\033[0;36m\]\W\[\033[0m\]\[\033[0;32m\]\$(git-branch-prompt)\[\033[0m\] \$ "
 
-# go lang
-export GOROOT=$HOME/programs/go
-export GOPATH=$HOME/programs/gocode
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
 # better history http://www.kossboss.com/linux---better-bash
+# https://github.com/mrzool/bash-sensible/
+# Append to the history file, don't overwrite it
+
 shopt -s histappend
+# Avoid duplicate entries
+HISTCONTROL="erasedups:ignoreboth"
+# Don't record some commands
+export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
+# Useful timestamp format
+HISTTIMEFORMAT='%F %T '
+# Save multi-line commands as one command
+shopt -s cmdhist
+# Record each line as it gets issued
+PROMPT_COMMAND='history -a'
+#huge history
 HISTFILESIZE=1000000
 HISTSIZE=1000000
-HISTCONTROL=ignoredups
-HISTTIMEFORMAT='%F %T '
-shopt -s cmdhist
-PROMPT_COMMAND='history -a'
-#nodejs
-#npm config set prefix ~/npm 
-export NODE_PATH=/home/$USER/npm/lib/node_modules:$NODE_PATH
-export PATH=/home/$USER/npm/bin:$PATH
 
-#python3
-#source $HOME/programs/p3/bin/activate
+# Perform file completion in a case insensitive fashion
+bind "set completion-ignore-case on"
+
+# hyphens and underscores as equivalent
+bind "set completion-map-case on"
+
+

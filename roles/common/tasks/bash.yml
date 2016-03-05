@@ -1,0 +1,9 @@
+---
+
+- name: copy bashrc base file
+  copy: src=bashrc_base dest=/home/{{username}}/.bashrc_base owner={{username}}
+- name: copy bashrc custom file
+  copy: src=bashrc_custom dest=/home/{{username}}/.bashrc_custom owner={{username}}
+
+- name: modifiy .bashrc to parse all .bashrc_*
+  lineinfile: dest={{home_dir}}/.bashrc insertafter="EOF" line="for f in ~/.bashrc_*; do source $f; done" state=present

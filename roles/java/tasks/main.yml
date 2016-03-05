@@ -6,7 +6,7 @@
 
     - name: install oracle/java packages
       apt: name={{item}} state=present update_cache=yes
-      with_items: oracle_packages
+      with_items: "{{oracle_packages}}"
 
     - name: install maven
       action: apt pkg={{item}} state=installed

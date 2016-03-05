@@ -4,6 +4,7 @@
 - include: nodejs.yml
 - include: chrome.yml
 - include: bin.yml
+- include: bash.yml
 - include: desktop.yml
 - include: security.yml
 - include: rss.yml

@@ -1,0 +1,25 @@
+alias portscan="nc -v -w 1 tapnic.com -z 1-10000 2>&1 | grep succeeded"
+alias portecle="java -jar ~/programs/portecle/portecle.jar"
+alias inxi="inxi -Fx"
+alias sync_photos="rsync -vuLr --no-perms -e \"ssh -p 2222\" root@192.168.188.21:/sdcard/DCIM/Camera/ ~/Pictures/Camera"
+
+export ANDROID_HOME=~/programs/android-sdk
+
+PATH=/home/$USER/bin:/home/$USER/programs/gradle/bin/:$PATH
+PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
+PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH
+
+export PATH
+
+# go lang
+export GOROOT=$HOME/programs/go
+export GOPATH=$HOME/programs/gocode
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+#nodejs
+#npm config set prefix ~/npm
+export NODE_PATH=/home/$USER/npm/lib/node_modules:$NODE_PATH
+export PATH=/home/$USER/npm/bin:$PATH
+
+#python3
+#source $HOME/programs/p3/bin/activate

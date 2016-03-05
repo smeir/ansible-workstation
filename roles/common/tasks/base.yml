@@ -24,7 +24,9 @@
     - unrar 
     - rar
     - konsole 
-    - ksysguard 
+    - ksysguard
+    - dolphin
+    - kdegraphics-strigi-plugins # dolphin pdf previews
     - dstat 
     - fslint 
     - gparted
@@ -36,7 +38,6 @@
     - xclip
     - libreoffice
     - nautilus
-    - dolphin
     - mc
     - ncdu
     - lnav # http://lnav.org/

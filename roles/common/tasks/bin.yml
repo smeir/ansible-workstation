@@ -2,8 +2,6 @@
 
 - name: copy screenfetch
   copy: src=screenfetch-dev dest=/home/{{username}}/bin/ mode=u+rwx owner={{username}}
-- name: copy bashrc base file
-  copy: src=bashrc_base dest=/home/{{username}}/.bashrc_base owner={{username}}
 - name: copy email signature file
   copy: src=signature dest=/home/{{username}}/.signature owner={{username}}
 - name: copy vim configuration
@@ -14,8 +12,7 @@
 - name: create gitconfig
   template: src=gitconfig dest=/home/{{username}}/.gitconfig owner={{username}}
 
-- name: modifiy .bashrc to parse all .bashrc_*
-  lineinfile: dest={{home_dir}}/.bashrc insertafter="EOF" line="for f in ~/.bashrc_*; do source $f; done" state=present
+
 
 
 #- name: install bro pages http://bropages.org/

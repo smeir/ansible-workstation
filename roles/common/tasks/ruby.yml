@@ -21,7 +21,7 @@
   sudo: no
   lineinfile: >
     dest={{home_dir}}/.bashrc
-    line=export\ PATH="{{rbenv_root}}/bin:$PATH"
+    line='export PATH="{{rbenv_root}}/bin:$PATH"'
     insertbefore=BOF
     regexp=PATH.*rbenv
 
