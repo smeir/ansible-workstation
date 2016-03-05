@@ -3,7 +3,10 @@
   apt_repository: repo='ppa:mc3man/trusty-media'
 
 - name: Package | Install vlc
-  apt: pkg=vlc state=installed update_cache=yes cache_valid_time=3600
+  apt: pkg={{ item }} state=installed update_cache=yes cache_valid_time=3600
+  with_items:
+    - vlc
+    - vlc-plugin-libde265 # H.265/HEVC support
 
 - name: Package | Install lists packages
   apt: pkg={{ item }} state=installed
