@@ -11,3 +11,4 @@
 - include: virtualbox.yml
 - include: multimedia.yml
 - include: proprietary.yml
+- include: atom.yml

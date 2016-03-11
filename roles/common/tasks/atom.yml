@@ -1,0 +1,7 @@
+---
+# to disable google analytics https://atom.io/packages/metrics
+- name: ensure atom repo available
+  apt_repository: repo='ppa:webupd8team/atom'
+
+- name: Package | Install atom.io
+  apt: pkg=atom state=installed
