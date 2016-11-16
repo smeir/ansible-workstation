@@ -10,3 +10,11 @@
 
 - name: start sabnzbdplus as service
   service: name=sabnzbdplus state=started
+
+- name: register sonarr key
+  apt_key: keyserver=keyserver.ubuntu.com id=D9B78493
+
+- name: register sonarr repo
+  apt_repository: repo='deb http://apt.sonarr.tv/ master main' state=present
+- name: install sonarr
+  apt: pkg=nzbdrone state=installed

@@ -9,17 +9,16 @@
     home_dir: "/home/{{username}}"
     #home_dir: "{{ ansible_env.HOME }}" can't be used because its "root" in sudo mode
     home_bin: "{{home_dir}}/bin"
-    # used for backup role
-    ccollect_config: "{{home_dir}}/.config/ccollect"
-    home_backup_dir: "/media/smeier/Backup/workstation"
   sudo: yes
   roles:
   - role: common
-  - {role: backup, sudo: no}
-  - role: eos
   - role: java
+  - role: android
+#  - role: nodejs
+#  - role: ruby
   - role: usenet
-  - {role: docker, sudo: no}
+#  - {role: docker, sudo: no}
+  - role: wine
 
 
 

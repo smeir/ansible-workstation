@@ -1,0 +1,7 @@
+---
+- name: Install neccessary libs for android dev
+  apt: pkg={{ item }} state=installed
+  with_items:
+      - lib32stdc++6 # android adb
+      - lib32z1 # android adb
+      - lib32ncurses5

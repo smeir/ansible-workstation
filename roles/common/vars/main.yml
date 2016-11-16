@@ -1,4 +1,1 @@
 apt_file: /etc/apt/sources.list.d/google-chrome.list
-
-ruby_version: 2.1.1
-rbenv_root: "{{home_dir}}/.rbenv"

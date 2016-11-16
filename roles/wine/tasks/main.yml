@@ -1,0 +1,10 @@
+---
+- name: add 32bit architectur
+  command: dpkg --add-architecture i386
+
+- name: register wine repo
+  apt_repository: repo='ppa:wine/wine-builds' state=present
+
+- name: install wine
+  apt: pkg=winehq-devel state=installed install_recommends=yes
+

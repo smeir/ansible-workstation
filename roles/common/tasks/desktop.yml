@@ -1,47 +1,48 @@
-- name: Package | Install diodon clipboard manager
+- name: Install diodon clipboard manager
   apt: pkg={{ item }} state=installed
   with_items:
     - diodon
 
-- name: link monochrome diodon icon
-  file: src=/usr/share/icons/ubuntu-mono-dark/status/16/diodon-panel.svg dest=/usr/share/icons/elementary/status/16/diodon-panel.svg state=link
-- name: update icon cache
-  command: gtk-update-icon-cache /usr/share/icons/elementary/
+- name: add repo for ambiance-flat-colors - http://www.omgubuntu.co.uk/2016/03/flat-ambiance-radiance-color-gtk-theme
+  apt_repository: repo='ppa:ravefinity-project/ppa'
 
-- name: copy sysmon, used by indicator-sysmonitor ?
-  copy: src=sysmon dest=/home/{{username}}/bin/ mode=u+rwx owner={{username}}
+- name: Install ambiance-flat-colors und unity-tweaks
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - ambiance-flat-colors
+    - unity-tweak-tool
 
-- name: add repo for sysmonitor indikator - https://github.com/fossfreedom/indicator-sysmonitor
+- name: add repo for sysmonitor indicator - https://github.com/fossfreedom/indicator-sysmonitor
   apt_repository: repo='ppa:fossfreedom/indicator-sysmonitor'
 
-- name: Package | Install sysmonitor indikator
+- name: Package | Install sysmonitor indicator
   apt: pkg={{ item }} state=installed
   with_items:
     - indicator-sysmonitor
 
-- name: add repo for ppa:atareao/atareao
-  apt_repository: repo='ppa:atareao/atareao'
+  #- name: add repo for ppa:atareao/atareao
+  #apt_repository: repo='ppa:atareao/atareao'
 
-- name: Package | Install indicators
-  apt: pkg={{ item }} state=installed
-  with_items:
-    - my-weather-indicator
-    - calendar-indicator
-    - cryptfolder-indicator
+  #- name: Package | Install indicators
+  #  apt: pkg={{ item }} state=installed
+  # with_items:
+  #  - my-weather-indicator
+  #  - calendar-indicator
+  #  - cryptfolder-indicator
 
 - name: copy some indicators to autostart
   copy: src={{item}} dest=/home/{{username}}/.config/autostart/ owner={{username}}
   with_items:
     - indicator-sysmonitor.desktop
-    - extras-calendar-indicator.desktop
-    - extras-cryptfolder-indicator.desktop
-    - extras-my-weather-indicator.desktop
-    - dropbox.desktop
-    - indicator-diodon.desktop
+      #    - extras-calendar-indicator.desktop
+      #    - extras-cryptfolder-indicator.desktop
+      #    - extras-my-weather-indicator.desktop
+      #    - dropbox.desktop
+      #    - indicator-diodon.desktop
 
-- name: create some desktop shortcuts for programs
-  template: src={{item}} dest=/home/{{username}}/.local/share/applications/ owner={{username}}
-  with_items:
-    - idea.desktop
-    - studio.desktop
-    - jd2.desktop
+#- name: create some desktop shortcuts for programs
+#  template: src={{item}} dest=/home/{{username}}/.local/share/applications/ owner={{username}}
+#  with_items:
+#    - idea.desktop
+#    - studio.desktop
+#    - jd2.desktop

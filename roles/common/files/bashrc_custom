@@ -23,3 +23,11 @@ export PATH=/home/$USER/npm/bin:$PATH
 
 #python3
 #source $HOME/programs/p3/bin/activate
+
+#cc65
+
+export CC65_HOME=/home/$USER/programs/cc65/
+export PATH=$CC65_HOME/bin:$PATH
+export CC65_INC=$CC65_HOME/include
+export CA65_INC=$CC65_HOME/asminc
+export LD65_LIB=$CC65_HOME/lib

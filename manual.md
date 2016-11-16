@@ -1,4 +1,4 @@
-followin steps are manual steps
+followin steps are manual steps (outdated)
 
 #konsole - KDE terminal
 

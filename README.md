@@ -1,16 +1,17 @@
 # ansible-workstation
-bootstrap a workstation environment, based on eos/ubuntu 14.04
+bootstrap a workstation environment, based on ubuntu 16.04
 
 ## roles
 * docker - installs docker, docker-machine, docker-compose
 
 # installed software
-## rss
-* [FeedReader](https://jangernert.github.io/feedreader/)
+## usenet
+* [sabnzbdplus](https://sabnzbd.org/)
+* [sonarr](https://sonarr.tv/)
+
 
 # included third party tools
 * [screenFetch](https://github.com/KittyKatt/screenFetch) by Brett Bohnenkamper
-* [ccollect](http://www.nico.schottelius.org/software/ccollect/) by Nico Schottelius
 
 # todo
 
@@ -27,9 +28,6 @@ sudo make install
 sudo add-apt-repository ppa:mapeditor.org/tiled
 sudo apt-get update
 sudo apt-get install tiled-daily
-
-* wine *
-http://wiki.winehq.org/Ubuntu
 
 
 **python**

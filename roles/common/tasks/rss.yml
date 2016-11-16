@@ -1,5 +1,0 @@
-- name: ensure  feedreader repo available, https://jangernert.github.io/feedreader/
-  apt_repository: repo='ppa:eviltwin1/feedreader-stable'
-
-- name: Package | Install feedreader
-  apt: pkg=feedreader state=installed update_cache=yes cache_valid_time=3600

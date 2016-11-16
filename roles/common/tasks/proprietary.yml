@@ -7,11 +7,3 @@
   with_items:
     - sublime-text-installer
 
-- name: add opera repo
-  apt_repository: repo='deb https://deb.opera.com/opera-stable/ stable non-free'
-
-- name: add opera key
-  shell: wget -qO- https://deb.opera.com/archive.key | sudo apt-key add -
-
-- name: Install opera
-  apt: pkg=opera-stable state=installed update_cache=yes
