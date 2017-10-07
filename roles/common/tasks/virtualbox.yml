@@ -2,11 +2,5 @@
 - name: add dependency manager
   apt: name=dkms
 
-  #- name: add virtualbox repo for trusty
-  #apt_repository: repo='deb http://download.virtualbox.org/virtualbox/debian trusty contrib'
-
-  #- name: add virtualbox key
-  # shell: wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
-
 - name: Install virtualbox
   apt: pkg=virtualbox state=installed

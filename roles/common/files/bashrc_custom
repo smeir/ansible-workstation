@@ -24,6 +24,9 @@ export PATH=/home/$USER/npm/bin:$PATH
 #python3
 #source $HOME/programs/p3/bin/activate
 
+#python pip
+export PATH=$PATH:$HOME/.local/bin
+
 #cc65
 
 export CC65_HOME=/home/$USER/programs/cc65/

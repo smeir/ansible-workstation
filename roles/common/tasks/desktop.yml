@@ -3,15 +3,6 @@
   with_items:
     - diodon
 
-- name: add repo for ambiance-flat-colors - http://www.omgubuntu.co.uk/2016/03/flat-ambiance-radiance-color-gtk-theme
-  apt_repository: repo='ppa:ravefinity-project/ppa'
-
-- name: Install ambiance-flat-colors und unity-tweaks
-  apt: pkg={{ item }} state=installed
-  with_items:
-    - ambiance-flat-colors
-    - unity-tweak-tool
-
 - name: add repo for sysmonitor indicator - https://github.com/fossfreedom/indicator-sysmonitor
   apt_repository: repo='ppa:fossfreedom/indicator-sysmonitor'
 
@@ -20,29 +11,7 @@
   with_items:
     - indicator-sysmonitor
 
-  #- name: add repo for ppa:atareao/atareao
-  #apt_repository: repo='ppa:atareao/atareao'
-
-  #- name: Package | Install indicators
-  #  apt: pkg={{ item }} state=installed
-  # with_items:
-  #  - my-weather-indicator
-  #  - calendar-indicator
-  #  - cryptfolder-indicator
-
 - name: copy some indicators to autostart
   copy: src={{item}} dest=/home/{{username}}/.config/autostart/ owner={{username}}
   with_items:
     - indicator-sysmonitor.desktop
-      #    - extras-calendar-indicator.desktop
-      #    - extras-cryptfolder-indicator.desktop
-      #    - extras-my-weather-indicator.desktop
-      #    - dropbox.desktop
-      #    - indicator-diodon.desktop
-
-#- name: create some desktop shortcuts for programs
-#  template: src={{item}} dest=/home/{{username}}/.local/share/applications/ owner={{username}}
-#  with_items:
-#    - idea.desktop
-#    - studio.desktop
-#    - jd2.desktop

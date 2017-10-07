@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name[en]=Diodon
-Comment[en]=clipboard manager
-Exec=/usr/bin/diodon
-Icon=application-default-icon
-X-GNOME-Autostart-enabled=true
-Type=Application

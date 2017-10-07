@@ -11,12 +11,3 @@
 
 - name: create gitconfig
   template: src=gitconfig dest=/home/{{username}}/.gitconfig owner={{username}}
-
-
-
-
-#- name: install bro pages http://bropages.org/
-#  gem: name={{item}} state=latest user_install=yes
-#  sudo: no
-#  with_items:
-#    - bropages

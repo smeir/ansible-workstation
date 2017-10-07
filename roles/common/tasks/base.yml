@@ -23,9 +23,7 @@
     - xul-ext-lightning
     - unrar 
     - rar
-    - konsole 
     - ksysguard
-    - dolphin
 #    - kdegraphics-strigi-plugins # dolphin pdf previews
     - dstat 
     - fslint 
@@ -46,7 +44,6 @@
     - nautilus-dropbox
     - vagrant
     - pidgin
-    - libgl1-mesa-glx-lts-utopic:i386 # steam
     - colorname # its always good to know the names
     - network-manager-openvpn
     - python-pip
